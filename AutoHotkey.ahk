@@ -116,7 +116,7 @@ GroupAdd, Fps, ahk_class techland_game_class
 
   ~Capslock & Backspace::Send {Delete}
 
-  ;; Vim-like HJKL arrow keys, with Shift support
+  ;; WASD and HJKL arrow keys, with Shift support
   ~Capslock & h::
     If Getkeystate("Shift","p")
       Send +{Left}
