@@ -14,7 +14,6 @@ GroupAdd, Browsers, ahk_class Chrome_WidgetWin_1
 GroupAdd, Fps, ahk_class UnrealWindow
 GroupAdd, Fps, ahk_class TankWindowClass
 GroupAdd, Fps, ahk_class techland_game_class
-GroupAdd, Fps, ahk_class
 
 ;; Bottom Right Arrow Cluster
   ;; Right Shift as Up Arrow on tap / Shift on hold
