@@ -151,6 +151,7 @@
                       {
                         "from": {
                           "key_code": "caps_lock"
+                          "modifiers": { "optional": [ "left_command", "left_control", "left_option", "left_shift" ] } }
                         },
                         "to": [
                           {
