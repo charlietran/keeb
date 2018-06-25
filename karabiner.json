@@ -52,6 +52,41 @@
                         ]
                     },
                     {
+                      "description": "Cmd+Esc and Shift+Esc for Pok3r",
+                      "manipulators":[
+                        {
+                          "from": {
+                            "key_code": "escape",
+                            "modifiers": {
+                              "mandatory": [ "left_command" ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "key_code": "grave_accent_and_tilde",
+                              "modifiers": [ "left_command" ]
+                            }
+                          ],
+                          "type": "basic"
+                        },
+                        {
+                          "from": {
+                            "key_code": "escape",
+                            "modifiers": {
+                              "mandatory": [ "left_shift" ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "key_code": "grave_accent_and_tilde",
+                              "modifiers": [ "left_shift" ]
+                            }
+                          ],
+                          "type": "basic"
+                        }
+                      ]
+                    },
+                    {
                         "description": "Hyper WASD/JHKL as Arrow Keys",
                         "manipulators": [
                             {
