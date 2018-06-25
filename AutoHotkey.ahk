@@ -15,22 +15,6 @@ GroupAdd, Fps, ahk_class UnrealWindow
 GroupAdd, Fps, ahk_class TankWindowClass
 GroupAdd, Fps, ahk_class techland_game_class
 
-;; Bottom Right Arrow Cluster
-  ;; Right Shift as Up Arrow on tap / Shift on hold
-  *RShift::
-    Send {RShift Down}
-    Keywait, RShift
-    Send {RShift Up}
-    If ( A_PriorKey == "RShift" )
-      Send {Blind}{Up} 
-    return
-  LShift & Rshift::SendInput +{Up}
-
-  *RCtrl::Send {Blind}{Right}
-  *AppsKey::Send {Blind}{Down}
-  *RWin::Send {Blind}{Left}
-  RAlt::Return
-
 ;;; Browser Specific
 #IfWinActive ahk_group Browsers
   !1::Send ^1
