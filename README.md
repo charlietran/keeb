@@ -29,6 +29,11 @@ Bindings
 * `CL+Z` and `CL+X` for volume control, and `CL+ERT` for media play, previous
   and forward. I fiddle with media controls constantly. 
 
+### Windows Specific
+* Remap `Alt+C` to `CTRL+C`, and the same for `XFVZSW`. This is so I don't have
+to get used to hitting different modifier keys for copy, paste, etc.
+* Remap `Alt+Q` and `Alt+H` to quit and hide app, respectively.
+
 ### Mac Specific
 * `Cmd+Esc` to `Cmd+~` for Mac intra-app window switching
 * Remap `Fn+Letter` to `Ctrl+Letter` for the internal keyboard, since I'm used
