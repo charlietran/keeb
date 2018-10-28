@@ -14,23 +14,14 @@ GroupAdd, Browsers, ahk_class Chrome_WidgetWin_1
 GroupAdd, Fps, ahk_class UnrealWindow
 GroupAdd, Fps, ahk_class TankWindowClass
 GroupAdd, Fps, ahk_class techland_game_class
+GroupAdd, Fps, ahk_exe HeroesOfTheStorm_x64.exe
 GroupAdd, Fps, ahk_class
 
-;; Bottom Right Arrow Cluster
-  ;; Right Shift as Up Arrow on tap / Shift on hold
-  *RShift::
-    Send {RShift Down}
-    Keywait, RShift
-    Send {RShift Up}
-    If ( A_PriorKey == "RShift" )
-      Send {Blind}{Up} 
-    return
-  LShift & Rshift::SendInput +{Up}
-
-  *RCtrl::Send {Blind}{Right}
-  *AppsKey::Send {Blind}{Down}
-  *RWin::Send {Blind}{Left}
-  RAlt::Return
+;;; Prefixes:
+;;; ! Alt
+;;; ^ Ctrl
+;;; + Shift
+;;; # Windows
 
 ;;; Browser Specific
 #IfWinActive ahk_group Browsers
@@ -115,8 +106,12 @@ GroupAdd, Fps, ahk_class
   ~Capslock & r::Send {Media_Prev}
   ~Capslock & t::Send {Media_Next}
 
+  ~Capslock & c::Send ^{c}
+
   ~Capslock & Space::Send {Delete}
 
+  ;; Function Keys
+  
   ;; Vim-like HJKL arrow keys, with Shift support
   ~Capslock & h::
     If Getkeystate("Shift","p")
