@@ -1,0 +1,629 @@
+{
+  "title": "Charlie's Keyboard Mods",
+  "rules": [
+    {
+      "description": "Capslock Key is only used as modifier",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [{
+            "set_variable": {
+              "name": "caps_lock pressed",
+              "value": 1
+            }
+          }],
+          "to_after_key_up": [{
+            "set_variable": {
+              "name": "caps_lock pressed",
+              "value": 0
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "description": "Capslock and WASD/HJKL for arrow keys",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "s", "modifiers": { "optional": [ "any" ] } },
+          "to": [{ "key_code": "down_arrow" }],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "j", "modifiers": { "optional": [ "any" ] } },
+          "to": [{ "key_code": "down_arrow" }],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]
+        },
+
+        {
+          "type": "basic",
+          "from": { "key_code": "w", "modifiers": { "optional": [ "any" ] } },
+          "to": [{ "key_code": "up_arrow" }],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "k", "modifiers": { "optional": [ "any" ] } },
+          "to": [{ "key_code": "up_arrow" }],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]
+        },
+
+        {
+          "type": "basic",
+          "from": { "key_code": "a", "modifiers": { "optional": [ "any" ] } },
+          "to": [{ "key_code": "left_arrow" }],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "h", "modifiers": { "optional": [ "any" ] } },
+          "to": [{ "key_code": "left_arrow" }],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]
+        },
+
+        {
+          "type": "basic",
+          "from": { "key_code": "d", "modifiers": { "optional": [ "any" ] } },
+          "to": [{ "key_code": "right_arrow" }],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "l", "modifiers": { "optional": [ "any" ] } },
+          "to": [{ "key_code": "right_arrow" }],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]
+        }
+      ]
+    },
+    {
+      "description": "Capslock and ZX/ERT for Volume/Media control",
+      "manipulators": [
+        {
+          "from": { "key_code": "r" },
+          "to": [ { "key_code": "rewind" } ],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "e" },
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }],
+          "to": [ { "key_code": "play_or_pause" } ],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "t" },
+          "to": [ { "key_code": "fastforward" } ],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "z" },
+          "to": [ { "key_code": "volume_decrement" } ],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "x" },
+          "to": [ { "key_code": "volume_increment" } ],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }],
+          "type": "basic"
+        }
+      ]
+    },
+
+    {
+      "description": "Convert backtick to pok3r-style escape key",
+      "manipulators": [
+        {
+          "from": { "key_code": "grave_accent_and_tilde" },
+          "to": [ { "key_code": "grave_accent_and_tilde" } ],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "grave_accent_and_tilde" },
+          "to": [ { "key_code": "escape" } ],
+          "type": "basic"
+        }
+      ]
+    },
+
+    {
+      "description": "Capslock + C for Ctrl + C",
+      "manipulators": [
+        {
+          "from": { "key_code": "c" },
+          "to": [ { "key_code": "c", "modifiers": [ "left_control" ] } ],
+          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }],
+          "type": "basic"
+        }
+
+      ]
+    },
+
+    {
+      "description": "Change fn + letter to left_control + letter",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "g",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "h",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "i",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "j",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "m",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "r",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "w",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "x",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "y",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": ["fn"],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+
+  ]
+}
