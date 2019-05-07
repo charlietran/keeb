@@ -1,8 +1,8 @@
 # keeb 
-Charlie's Keyboard configurations for Mac and Windows. I use a [60%
-keyboard][1] and it's very convenient to have the same keybindings across both
-platforms. To achieve this, I use [AutoHotkey][2] on Windows and [Karabiner
-Elements][3] on Mac.
+My Keyboard configurations for Mac and Windows. I use a [60% keyboard][1] and
+it's very convenient to have the same keybindings across both platforms. To
+achieve this, I use [AutoHotkey][2] on Windows and [Karabiner Elements][3] on
+Mac.
 
 [1]: https://mechanicalkeyboards.com/shop/index.php?l=product_detail&p=1238
 [2]: http://autohotkey.com/
