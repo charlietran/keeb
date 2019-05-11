@@ -15,7 +15,7 @@ GroupAdd, Fps, ahk_class UnrealWindow
 GroupAdd, Fps, ahk_class TankWindowClass
 GroupAdd, Fps, ahk_class techland_game_class
 GroupAdd, Fps, ahk_exe HeroesOfTheStorm_x64.exe
-GroupAdd, Fps, ahk_class
+GroupAdd, Fps, ahk_class Respawn001
 
 ;;; Prefixes:
 ;;; ! Alt
@@ -61,6 +61,11 @@ GroupAdd, Fps, ahk_class
   !+p::Send ^+p
 #IfWinActive
 
+;;; Windows key rebinding
+#IfWinActive ahk_group FPS
+LWin::[
+#IfWinActive
+
 ;;; General Maclike Hotkeys, when not in a Fps game
 #IfWinNotActive ahk_group Fps
   !c::Send ^c
@@ -86,15 +91,20 @@ GroupAdd, Fps, ahk_class
   ;;; Alt+H To Minimize
   !h::WinMinimize,a
 
-  ;;; Shift-Escape for Tilde
-  +Esc::~
-  ^~::run taskmgr.exe
-
   ;; Alt-q to Quit
   !q::Send !{F4}
 #IfWinNotActive
 
+;; Escape/Tilde Key mapping
+  ;;; Tilde as Escape
+  `::Esc
+  +`::~
+  ~Capslock & `::`
+  ;;; Ctrl-Shift- for Task Manager
 
+  ;;; Shift-Escape for Tilde
+  +Esc::~
+  ^~::run taskmgr.exe
 
 ;; Capslock Bindings
   ~Capslock & z::Send {Volume_Down}
@@ -111,7 +121,19 @@ GroupAdd, Fps, ahk_class
   ~Capslock & Space::Send {Delete}
 
   ;; Function Keys
-  
+    ~Capslock & 1::F1
+    ~Capslock & 2::F2
+    ~Capslock & 3::F3
+    ~Capslock & 4::F4
+    ~Capslock & 5::F5
+    ~Capslock & 6::F6
+    ~Capslock & 7::F7
+    ~Capslock & 8::F8
+    ~Capslock & 9::F9
+    ~Capslock & 0::F10
+    ~Capslock & -::F11
+    ~Capslock & =::F12 
+
   ;; Vim-like HJKL arrow keys, with Shift support
   ~Capslock & h::
     If Getkeystate("Shift","p")
