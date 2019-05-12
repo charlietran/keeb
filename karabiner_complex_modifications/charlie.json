@@ -244,15 +244,14 @@
     },
 
     {
-      "description": "Capslock + C for Ctrl + C",
+      "description": "Capslock + C/G/I/O/B/F for Ctrl + same",
       "manipulators": [
-        {
-          "from": { "key_code": "c" },
-          "to": [ { "key_code": "c", "modifiers": [ "left_control" ] } ],
-          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }],
-          "type": "basic"
-        }
-
+        {"from": { "key_code": "c" }, "to": [ { "key_code": "c", "modifiers": [ "left_control" ] } ], "type": "basic", "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]},
+        {"from": { "key_code": "g" }, "to": [ { "key_code": "g", "modifiers": [ "left_control" ] } ], "type": "basic", "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]},
+        {"from": { "key_code": "i" }, "to": [ { "key_code": "i", "modifiers": [ "left_control" ] } ], "type": "basic", "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]},
+        {"from": { "key_code": "o" }, "to": [ { "key_code": "o", "modifiers": [ "left_control" ] } ], "type": "basic", "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]},
+        {"from": { "key_code": "b" }, "to": [ { "key_code": "b", "modifiers": [ "left_control" ] } ], "type": "basic", "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]},
+        {"from": { "key_code": "f" }, "to": [ { "key_code": "f", "modifiers": [ "left_control" ] } ], "type": "basic", "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }]}
       ]
     },
 
