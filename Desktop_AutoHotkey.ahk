@@ -36,7 +36,6 @@ GroupAdd, Fps, ahk_class Respawn001
   +!t::Send +^t
   !w::Send ^w
   !l::Send ^l
-  !g::Send ^g
   !r::Send ^r
 
   ![::Send ^{PgUp}
@@ -71,6 +70,8 @@ LWin::[
   !c::Send ^c
   !x::Send ^x
   !f::Send ^f
+  !g::Send ^g
+  !+g::Send ^+g
   !v::Send ^v
   !z::Send ^z
   !+z::Send ^+z
