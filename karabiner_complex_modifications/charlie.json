@@ -200,7 +200,7 @@
     },
 
     {
-      "description": "Convert backtick to pok3r-style escape key",
+      "description": "Convert Touchbar Macbook Pro backtick to pok3r-style escape key",
       "manipulators": [
         {
           "from": { "key_code": "grave_accent_and_tilde" },
@@ -211,6 +211,19 @@
         {
           "from": { "key_code": "grave_accent_and_tilde" },
           "to": [ { "key_code": "escape" } ],
+					"conditions": [
+						{
+							"type": "device_if",
+							"identifiers": [
+								{ "vendor_id": 1452, "product_id": 636 },
+								{ "vendor_id": 1241, "product_id": 17733 },
+								{ "vendor_id": 1452, "product_id": 591 },
+								{ "vendor_id": 1452, "product_id": 597 },
+								{ "vendor_id": 1452, "product_id": 34304 },
+								{ "vendor_id": 1241, "product_id": 402 }
+							]
+						}
+					],
           "type": "basic"
         }
       ]
@@ -222,7 +235,7 @@
         {
           "from": { "key_code": "escape" },
           "to": [ { "key_code": "grave_accent_and_tilde" } ],
-          "conditions": [{ "type": "variable_if", "name": "caps_lock pressed", "value": 1 }],
+          "conditions": [ { "type": "variable_if", "name": "caps_lock pressed", "value": 1 } ],
           "type": "basic"
         },
         {
